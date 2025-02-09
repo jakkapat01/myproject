@@ -39,7 +39,7 @@ $result = mysqli_query($condb, $query);
           }
         } ?>
       </div>
-      <p class="text-center" style ="padding-top: 30px;" >*เขียว = ว่าง, เทา = ไม่ว่าง</p>
+      <p class="text-center" style ="padding-top: 25px;" >*เขียว = ว่าง, เทา = ไม่ว่าง</p>
     </div>
   </div>
   <hr>
