@@ -12,7 +12,7 @@ if(isset($_POST['email_account']) && isset($_POST['password_account'])){
         $hash = $result_check_account['password_account'];
         if(password_verify($password_account, $hash)){
             if($result_check_account['role_account'] == 'member'){
-                die(header('Location: index.html')); //เข้าสู่ระบบสำเร็จ
+                die(header('Location: index.php')); //เข้าสู่ระบบสำเร็จ
             }else if($result_check_account['role_account'] == 'admin'){
                 die(header('Location: admin.php')); //เข้าสู่ระบบสำเร็จ
             }
