@@ -10,15 +10,14 @@
 <body class="text-center" style="background-color: black;">
         <main class="form-signin">
             <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmpoF2Aol7AY3XKax3LuAbB-alssb5q9yU7Q&s" alt="" width="75" height="80">
-            <form>
+            <form action="process-login.php" method="post">
               <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-          
               <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <input name="email_account" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <input name="password_account" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
               </div>
           
@@ -28,7 +27,7 @@
                 </label>
               </div>
               <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-              <a href="sigup.php">Sign-up</a>
+              <a href="signup.php" class="d-block mt-2">Sign-up</a>
               <p class="mt-5 mb-3 text-muted">© 2025</p>
             </form>
           </main>
