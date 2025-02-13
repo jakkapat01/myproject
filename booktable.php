@@ -1,9 +1,13 @@
 <?php
 //เรียกใช้งานไฟล์เชื่อมต่อฐานข้อมูล
 require_once 'condb.php';
+
 //query
 $query = "SELECT * FROM tbl_table ORDER BY id ASC";
 $result = mysqli_query($condb, $query);
+
+
+
 ?>
 <!doctype html>
 <html lang="en">

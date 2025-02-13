@@ -1,4 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start(); // เริ่มต้นเซสชัน
+
 $open_connect = 1;
 require('connect.php');
 
@@ -11,18 +17,28 @@ if(isset($_POST['email_account']) && isset($_POST['password_account'])){
         $result_check_account = mysqli_fetch_assoc($call_back_check_account);
         $hash = $result_check_account['password_account'];
         if(password_verify($password_account, $hash)){
+            $user_id = $result_check_account['user_id'];
+            
+            $_SESSION['is_logged_in'] = true; // ตั้งค่านี้เมื่อผู้ใช้ล็อกอินสำเร็จ
+            $_SESSION['user_id'] = $user_id; // ตัวอย่างการจัดเก็บ user_id
+
             if($result_check_account['role_account'] == 'member'){
-                die(header('Location: index.php')); //เข้าสู่ระบบสำเร็จ
-            }else if($result_check_account['role_account'] == 'admin'){
-                die(header('Location: admin.php')); //เข้าสู่ระบบสำเร็จ
+                header('Location: index.php'); // เข้าสู่ระบบสำเร็จ
+                exit();
+            } else if($result_check_account['role_account'] == 'admin'){
+                header('Location: admin.php'); // เข้าสู่ระบบสำเร็จ
+                exit();
             }
-        }else{
-            die(header('Location: login.php')); //รหัสผ่านไม่ถูกต้อง
+        } else {
+            header('Location: login.php'); // รหัสผ่านไม่ถูกต้อง
+            exit();
         }
-    }else{
-        die(header('Location: login.php')); //ไม่มีผู้ใช้นี้
+    } else {
+        header('Location: login.php'); // ไม่มีผู้ใช้รายนี้
+        exit();
     }
-}else{
-    die(header('Location: login.php')); //ไม่มีข้อมูล
+} else {
+    header('Location: login.php'); // ไม่มีข้อมูลการล็อกอิน
+    exit();
 }
 ?>

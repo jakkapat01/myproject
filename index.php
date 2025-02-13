@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+// ตรวจสอบสถานะการล็อกอิน
+$is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +28,16 @@
               <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fmaps.app.goo.gl%2FyjSnb5ihmctrgTybA%3Fg_st%3Dic%26fbclid%3DIwZXh0bgNhZW0CMTAAAR1jIIdKYdxqOx76aUR75WHs7omZCDnqM05Sk_-yz2lii2W4sjd4HZzd_Eg_aem_WIoJ3c6_IDM_ZEXJ6rfXaw&h=AT256bnohFT6182UAygkYY_BuTW5pI9EYhx544w-st9uaomErvtNZWp2YPLON3-kabtyFEqfGivoeNpFo2Dw9In0q5aPebefxs7RA1jjCEqrDAvXGbzZR8_9DV_e1MGLqPFubXk7uDs" class="nav-link px-2 text-white" target="_blank">Location</a></li>
               <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             </ul>
-    
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2" onclick="location.href='login.php'">Login</button>
+              <?php if ($is_logged_in):?>
+                <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2" onclick="location.href='logout.php'">sign-out</button>
+              </div>
+            <?php else: ?>
+              <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2" onclick="location.href='login.php'">sign-in</button>
               <button type="button" class="btn btn-warning" onclick="location.href='signup.php'">Sign-up</button>
             </div>
+            <?php endif; ?>
           </div>
         </div>
       </header>
@@ -81,7 +92,7 @@
           <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2 style="color:#FFFFFF;" >Booking</h2>
             <p>Where the Music is Loud, the Drinks are Strong, and the Memories Last!</p>
-            <button class="btn btn-outline-secondary" type="button" style="color: #FFFFFF;"  onclick="location.href='booktable.php'">booking here</button>
+            <button class="btn btn-outline-secondary" type="button" style="color: #FFFFFF;"  onclick="location.href='check_login.php'">booking here</button>
           </div>
         </div>
         <div class="col-md-6">
