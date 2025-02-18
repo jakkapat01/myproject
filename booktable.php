@@ -7,7 +7,6 @@ $query = "SELECT * FROM tbl_table ORDER BY id ASC";
 $result = mysqli_query($condb, $query);
 
 
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,7 +35,7 @@ $result = mysqli_query($condb, $query);
         <?php foreach ($result as $row) {
           if ($row['table_status'] == 0) { // ว่าง
             echo '<div class="col-2 m-1">';
-            echo '<a href="booking.php?id='.$row["id"].'&act=booking" class="btn btn-success">'.$row['table_name'].'</a></div>';
+            echo '<a href="check_login.php?id=' . urlencode($row["id"]) . '&act=booking" class="btn btn-success">' . htmlspecialchars($row['table_name']) . '</a></div>';
           } else { // ถูกจอง
             echo '<div class="col-2 m-1">';
             echo '<a href="#" class="btn btn-secondary disabled">'.$row['table_name'].'</a></div>';

@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start(); // เริ่มต้นเซสชัน
+session_start();
 
 $open_connect = 1;
 require('connect.php');

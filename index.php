@@ -92,7 +92,7 @@ $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ==
           <div class="h-100 p-5 text-bg-dark rounded-3">
             <h2 style="color:#FFFFFF;" >Booking</h2>
             <p>Where the Music is Loud, the Drinks are Strong, and the Memories Last!</p>
-            <button class="btn btn-outline-secondary" type="button" style="color: #FFFFFF;"  onclick="location.href='check_login.php'">booking here</button>
+            <button class="btn btn-outline-secondary" type="button" style="color: #FFFFFF;"  onclick="location.href='booktable.php'">booking here</button>
           </div>
         </div>
         <div class="col-md-6">
