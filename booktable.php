@@ -25,7 +25,7 @@ $result = mysqli_query($condb, $query);
   </head>
   <body style="background-color: #000000;">
   <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="col-12 col-sm-11 col-md-7 devbanban p-4">
+    <div class="col-12 col-sm-11 col-md-10 col-lg-10 devbanban p-4">
       <h4 class="text-center text-danger">เลือกโต๊ะ</h4>
       <div class="alert alert-warning text-center" role="alert">
         Tables
