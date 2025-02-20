@@ -34,7 +34,10 @@
             </div>
         
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-            <a href="login.php" class="d-block mt-2" >Sign in</a>
+            <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
+                <p class="text-muted mb-0 me-1">Already have an account?</p>
+                <a href="login.php">Sign in</a>
+              </div>
             <p class="mt-5 mb-3 text-muted">© 2025</p>
         </form>
     </main>

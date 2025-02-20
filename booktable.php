@@ -28,7 +28,7 @@ $result = mysqli_query($condb, $query);
     <div class="col-12 col-sm-11 col-md-10 col-lg-10 devbanban p-4">
       <h4 class="text-center text-danger">เลือกโต๊ะ</h4>
       <div class="alert alert-warning text-center" role="alert">
-        Tables
+        Stage
       </div>
       <hr>
       <div class="row justify-content-center">
@@ -53,4 +53,4 @@ $result = mysqli_query($condb, $query);
   </center>
 </body>
 
-    </html>
+</html>

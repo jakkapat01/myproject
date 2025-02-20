@@ -16,7 +16,7 @@
                 <input name="email_account" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Email address</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating mt-2">
                 <input name="password_account" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
               </div>
@@ -27,7 +27,10 @@
                 </label>
               </div>
               <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-              <a href="signup.php" class="d-block mt-2">Sign-up</a>
+              <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
+                <p class="text-muted mb-0 me-1">Don't have an account?</p>
+                <a href="signup.php">Sign up</a>
+              </div>
               <p class="mt-5 mb-3 text-muted">© 2025</p>
             </form>
           </main>

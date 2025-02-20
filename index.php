@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 // ตรวจสอบสถานะการล็อกอิน
 $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true;
 ?>
@@ -12,10 +13,11 @@ $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ==
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle" />
 </head>
 <body>
     <!-- navbar -->
-    <header class="p-3 bg-dark text-white">
+    <header class="p-3 bg-dark text-white fixed-top">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -29,14 +31,15 @@ $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ==
               <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             </ul>
               <?php if ($is_logged_in):?>
-                <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2" onclick="location.href='logout.php'">sign-out</button>
+              <div class="d-flex align-items-center justify-content-end me-1">
+                <button type="button" class="btn btn-outline-light me-2" onclick="location.href='logout.php'">sign-out</button>
+                <span class="material-symbols-outlined " style="font-size: 40px;">account_circle</span>
               </div>
             <?php else: ?>
               <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2" onclick="location.href='login.php'">sign-in</button>
-              <button type="button" class="btn btn-warning" onclick="location.href='signup.php'">Sign-up</button>
-            </div>
+                <button type="button" class="btn btn-outline-light me-2" onclick="location.href='login.php'">sign-in</button>
+                <button type="button" class="btn btn-warning" onclick="location.href='signup.php'">Sign-up</button>
+              </div>
             <?php endif; ?>
           </div>
         </div>
@@ -61,7 +64,7 @@ $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ==
           </div>
           <div class="carousel-item">
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-    
+              <img src="https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/474060194_522363784189705_8306108220205470999_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=uoezu-209YkQ7kNvgFImgsA&_nc_zt=23&_nc_ht=scontent-bkk1-1.xx&_nc_gid=A8E_VeUzfoiaSM7lpWo1AmQ&oh=00_AYAFxo1O8mns5NrmMWReGsMqpQr8LRiOwQMqQ2nHl3fu8w&oe=67BCA0FC" class="d-block w-100" alt="carousel-image">
             <div class="container">
               <div class="carousel-caption">
               </div>
