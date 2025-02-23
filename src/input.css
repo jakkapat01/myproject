@@ -40,6 +40,7 @@ body {
 }
 
 @theme {
+    --color--seat-plan; #F472B6;
     --color-nav-color: #FFCC00;
     --font-Pattaya: Pattaya, sans-serif;
     --font-Anuphan: Anuphan, sans-serif;

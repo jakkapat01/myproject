@@ -60,7 +60,7 @@ if (!$row) {
     </div>
 </div>
 <footer class="text-center text-white mt-3">
-    สนับสนุนได้ที่ <a href="https://www.instagram.com/jatokapoa?igsh=MTRrc2ljc3VxcWd6" target="_blank" class="text-info">คลิก</a>
+    สนับสนุนได้ที่ <a href="/" target="_blank" class="text-info">คลิก</a>
 </footer>
 </body>
 </html>
