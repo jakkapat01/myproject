@@ -30,7 +30,7 @@ $is_logged_in = isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ==
               <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fmaps.app.goo.gl%2FyjSnb5ihmctrgTybA%3Fg_st%3Dic%26fbclid%3DIwZXh0bgNhZW0CMTAAAR1jIIdKYdxqOx76aUR75WHs7omZCDnqM05Sk_-yz2lii2W4sjd4HZzd_Eg_aem_WIoJ3c6_IDM_ZEXJ6rfXaw&h=AT256bnohFT6182UAygkYY_BuTW5pI9EYhx544w-st9uaomErvtNZWp2YPLON3-kabtyFEqfGivoeNpFo2Dw9In0q5aPebefxs7RA1jjCEqrDAvXGbzZR8_9DV_e1MGLqPFubXk7uDs" class="nav-link px-2 text-white" target="_blank">Location</a></li>
               <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             </ul>
-              <?php if ($is_logged_in):?>
+            <?php if ($is_logged_in):?>
               <div class="d-flex align-items-center justify-content-end me-1">
                 <button type="button" class="btn btn-outline-light me-2" onclick="location.href='logout.php'">sign-out</button>
                 <span class="material-symbols-outlined " style="font-size: 40px;">account_circle</span>

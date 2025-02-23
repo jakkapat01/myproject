@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+body {
+    background-color: #000;
+}
+
+@layer base {
+
+    body {
+        font-family: 'IBM Plex Sans Thai Looped', 'sans-serif';
+    }
+
+    .font-anuphan {
+        font-family: 'Anuphan', 'sans-serif';
+    }
+
+    .font-ibmPlex {
+        font-family: 'IBM Plex Sans Thai Looped', 'sans-serif';
+    }
+
+    .font-kodchasan {
+        font-family: 'Kodchasan', 'sans-serif';
+    }
+
+    .font-mitr {
+        font-family: 'Mitr', 'sans-serif';
+    }
+
+    .font-notoSansThai {
+        font-family: 'Noto Sans Thai', 'sans-serif';
+    }
+
+    .font-notoSerifThai {
+        font-family: 'Noto Serif Thai', 'serif';
+    }
+
+    .font-pattaya {
+        font-family: 'Pattaya', 'sans-serif';
+    }
+}
+
+@theme {
+    --color-nav-color: #FFCC00;
+    --font-Pattaya: Pattaya, sans-serif;
+    --font-Anuphan: Anuphan, sans-serif;
+    --font-Itim: Itim, sans-serif;
+    --font-Sarabun: Sarabun, sans-serif;
+    --font-ChakraPetch: Chakra Petch, sans-serif;
+    --font-Kanit: Kanit, sans-serif;
+    --font-Mitr: Mitr, sans-serif;
+    --font-Krub: Krub, sans-serif;
+    --font-Sarabun: Sarabun, sans-serif;
+}
+
+@keyframes blink {
+    0% {
+        color: #FF0000;
+    }
+
+    25% {
+        color: #00FF00;
+    }
+
+    50% {
+        color: #0000FF;
+    }
+
+    75% {
+        color: #FF00FF;
+    }
+
+    100% {
+        color: #FF0000;
+    }
+
+}
+
+.blink-text {
+    animation: blink 0.5s linear infinite;
+}
+
+.blink-hover:hover {
+    animation: blink 0.5s linear infinite;
+}

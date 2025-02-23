@@ -1,0 +1,331 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Mitr:wght@200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Noto+Serif+Thai:wght@100..900&family=Pattaya&display=swap"
+        rel="stylesheet">
+    <title>Register - Onzon</title>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="absolute top-4 left-4">
+        <a href="../pages/index.html"
+            class="inline-flex items-center text-gray-400 hover:text-gray-200 hover:scale-110 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span class="font-ibmPlex text-sm sm:text-base">ย้อนกลับ</span>
+        </a>
+    </div>
+
+    <div class="min-h-screen flex items-center justify-center p-4 mt-8 sm:mt-0">
+        <div
+            class="bg-white rounded-2xl shadow-xl w-[calc(70vw)] max-w-lg lg:max-w-xl xl:max-w-calc(1000px)  p-6 sm:p-8 md:p-10">
+
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 font-Pattaya">
+                ลงทะเบียน
+            </h2>
+
+            <form onsubmit="handleSubmit(event)" class="space-y-4 sm:space-y-6">
+
+                <div>
+                    <label
+                        class="block font-ibmPlex text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700 mb-2">
+                        ชื่อผู้ใช้
+                    </label>
+                    <input type="text" id="username"
+                        class="w-full px-4 py-2 sm:py-3 lg:py-4 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        placeholder="กรอกชื่อผู้ใช้" required oninput="checkUsername()">
+                    <p id="usernameError" class="text-red-500 text-sm mt-1 hidden font-ibmPlex">
+                        ชื่อนี้ถูกใช้แล้ว
+                    </p>
+                </div>
+
+                <div>
+                    <label
+                        class="block font-ibmPlex text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700 mb-2">
+                        อีเมล
+                    </label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 sm:py-3 lg:py-4 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        placeholder="example@email.com" required oninput="checkEmail(),checkTypeEmail()">
+                    <p id="emailError" class="text-red-500 text-sm mt-1 hidden font-ibmPlex">
+                        อีเมลนี้ถูกใช้แล้ว
+                    </p>
+                    <p id="emailtypeError" class="text-red-500 text-sm mt-1 hidden font-ibmPlex">
+                        อีเมลไม่ถูกต้อง
+                    </p>
+                </div>
+
+
+                <div>
+                    <label
+                        class="block font-ibmPlex text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700 mb-2">
+                        รหัสผ่าน
+                    </label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 sm:py-3 lg:py-4 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        placeholder="••••••••" required minlength="8" oninput="checkPassword()">
+                    <p class="text-gray-500 text-sm mt-1 font-ibmPlex">
+                        รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร
+                    </p>
+                </div>
+
+                <div>
+                    <label
+                        class="block font-ibmPlex text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700 mb-2">
+                        ยืนยันรหัสผ่าน
+                    </label>
+                    <input type="password" id="confirmPassword"
+                        class="w-full px-4 py-2 sm:py-3 lg:py-4 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        placeholder="••••••••" required oninput="checkPassword()">
+                    <p id="passwordError" class="text-red-500 text-sm mt-1 hidden font-ibmPlex">
+                        รหัสผ่านไม่ตรงกัน
+                    </p>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-yellow-500 text-black font-medium py-2 sm:py-3 lg:py-4 rounded-lg hover:bg-yellow-600 transition-colors duration-300 text-sm sm:text-base lg:text-xl">
+                    ลงทะเบียน
+                </button>
+
+                <p class="text-center text-sm sm:text-base text-gray-600">
+                    มีบัญชีอยู่แล้ว?
+                    <a href="../pages/login.html" class="text-yellow-600 hover:text-yellow-700 font-medium">
+                        เข้าสู่ระบบ
+                    </a>
+                </p>
+
+                <!-- success -->
+                <div id="successModal" class="fixed inset-0 hidden">
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <!-- Modal -->
+                    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+                        <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 text-center">
+                            <!-- ไอคอนเครื่องหมายถูก -->
+                            <div
+                                class="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+
+                            <!-- ข้อความ -->
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2 font-ibmPlex">
+                                ลงทะเบียนสำเร็จ
+                            </h2>
+                            <p class="text-gray-600 font-ibmPlex">
+                                กำลังนำไปหน้าเข้าสู่ระบบ...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- unsuccess -->
+                <div id="unsuccesModal" class="fixed inset-0 hidden">
+
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <!-- email ไม่ถูก -->
+                    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+                        <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 text-center">
+                            <!-- ไอคอนเครื่องหมาย ! -->
+                            <div
+                                class="mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                                </svg>
+                            </div>
+
+                            <!-- ข้อความ -->
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2 font-ibmPlex">
+                                ชื่อผู้ใช้หรืออีเมลนี้ถูกใช้แล้ว
+                            </h2>
+                            <p class="text-gray-600 font-ibmPlex">
+                                <a href="../pages/register.html"
+                                    class="text-yellow-600 hover:text-yellow-700 font-medium underline underline-offset-1">
+                                    ลองอีกครั้ง
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- incorrectPass -->
+                <div id="incorrectPassModal" class="fixed inset-0 hidden">
+
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+                        <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 text-center">
+                            <!-- ไอคอนเครื่องหมาย ! -->
+                            <div
+                                class="mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                                </svg>
+                            </div>
+
+                            <!-- ข้อความ -->
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2 font-ibmPlex">
+                                รหัสผ่านไม่ตรงกัน
+                            </h2>
+                            <p class="text-gray-600 font-ibmPlex">
+                                <a href="../pages/register.html"
+                                    class="text-yellow-600 hover:text-yellow-700 font-medium underline underline-offset-1">
+                                    ลองอีกครั้ง
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function checkUsername() {
+            const username = document.getElementById('username').value;
+            const errorMessage = document.getElementById('usernameError');
+            const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+
+            if (username !== '') {
+                if (existingUsers.some(user => user.username === username)) {
+                    errorMessage.classList.remove('hidden');
+                } else {
+                    errorMessage.classList.add('hidden');
+                }
+            }
+        }
+
+        function checkTypeEmail() {
+            const email = document.getElementById('email').value;
+            const emailtypeError = document.getElementById('emailtypeError');
+
+            // Regular expression สำหรับตรวจสอบรูปแบบอีเมล
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            // ตรวจสอบรูปแบบอีเมล
+            if (!emailPattern.test(email)) {
+                emailtypeError.classList.remove('hidden');
+                emailtypeError.textContent = 'อีเมลไม่ถูกต้อง';
+            } else {
+                emailtypeError.classList.add('hidden');
+            }
+        }
+
+        function checkEmail() {
+            const email = document.getElementById('email').value;
+            const errorMessage = document.getElementById('emailError');
+            const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+
+            if (email !== '') {
+                if (existingUsers.some(user => user.email === email)) {
+                    errorMessage.classList.remove('hidden');
+                } else {
+                    errorMessage.classList.add('hidden');
+                }
+            }
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('passwordError');
+
+            if (confirmPassword !== '') {
+                if (password !== confirmPassword) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.textContent = 'รหัสผ่านไม่ตรงกัน';
+                } else if (password.length < 8) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.textContent = 'รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร';
+                } else {
+                    errorMessage.classList.add('hidden');
+                }
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // ดึงข้อมูลผู้ใช้ที่มีอยู่จาก localStorage
+            const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+
+            // ตรวจสอบว่ามีชื่อผู้ใช้นี้แล้วหรือไม่
+            if (existingUsers.some(user => user.username === username)) {
+                // แสดง Modal สำหรับชื่อผู้ใช้ซ้ำ
+                const unsuccessModal = document.getElementById('unsuccesModal');
+                unsuccessModal.classList.remove('hidden');
+                return;
+            }
+
+            // ตรวจสอบว่าอีเมลถูกใช้แล้วหรือไม่
+            if (existingUsers.some(user => user.email === email)) {
+                // แสดง Modal สำหรับอีเมลซ้ำ
+                const unsuccessModal = document.getElementById('unsuccesModal');
+                unsuccessModal.classList.remove('hidden');
+                return;
+            }
+
+            // ตรวจสอบความยาวรหัสผ่าน
+            if (password.length < 8) {
+                // แสดง Modal สำหรับรหัสผ่านที่สั้นเกินไป
+                const unsuccessModal = document.getElementById('unsuccesModal');
+                unsuccessModal.classList.remove('hidden');
+                return;
+            }
+
+            // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
+            if (password !== confirmPassword) {
+                // แสดง Modal สำหรับรหัสผ่านไม่ตรงกัน
+                const incorrectPassModal = document.getElementById('incorrectPassModal');
+                incorrectPassModal.classList.remove('hidden');
+                return;
+            }
+
+            // เพิ่มข้อมูลผู้ใช้ใหม่ใน localStorage
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            existingUsers.push(userData);
+            localStorage.setItem('users', JSON.stringify(existingUsers));
+
+            // แสดง Modal สำเร็จ
+            const successModal = document.getElementById('successModal');
+            successModal.classList.remove('hidden');
+
+            // รอ 3 วินาทีแล้ว redirect ไปยังหน้าล็อกอิน
+            setTimeout(() => {
+                window.location.href = '../pages/login.html';
+            }, 3000);
+        }
+
+        document.querySelector('form').addEventListener('submit', handleSubmit);
+    </script>
+</body>
+
+</html>

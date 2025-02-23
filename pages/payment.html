@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Mitr:wght@200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Noto+Serif+Thai:wght@100..900&family=Pattaya&display=swap"
+        rel="stylesheet">
+    <link rel="website icon" type="png" href="../images/OnzonLogo.png">
+    <title>Payment - Onzon Bar</title>
+</head>
+
+<body>
+    <nav class="bg-nav-color w-full h-18 shadow-lg rounded-b-lg flex items-center justify-between px-4 z-30">
+
+        <!-- Logo + Name -->
+        <div class="items-center flex">
+
+            <button class="block p-2" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+
+            <img src="../images/OnzonLogo.png" alt="Logo"
+                class="h-8 w-8 md:h-12 md:w-12 rounded-xl ml-2 md:ml-5 mr-2 md:mr-5">
+            <span
+                class="font-Pattaya text-black text-2xl sm:text-[30px] md:text-[36px] lg:text-[42px] mr-3 md:mr-8 blink-text">Onzon
+                Bar</span>
+
+        </div>
+
+        <!-- Login/Register btn -->
+        <div class="flex items-center space-x-2 md:space-x-4">
+            <div id="loginButton">
+                <a href="../pages/login.html">
+                    <button
+                        class="bg-yellow-500 hover:bg-yellow-600 text-black font-medium px-4 py-2 rounded-lg transition-colors duration-300">
+                        Login/Register
+                    </button>
+                </a>
+            </div>
+
+            <!-- User Profile -->
+            <div id="userProfile" class="hidden relative">
+                <!-- รูปโปรไฟล์ -->
+                <div class="flex items-center cursor-pointer" onclick="toggleProfileMenu()">
+                    <img id="userAvatar" src="../images/user.png" alt="User Profile"
+                        class="h-10 w-10 rounded-full hover:ring-2 hover:ring-yellow-500">
+                </div>
+
+                <!-- Dropdown Menu -->
+                <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden z-50">
+                    <div class="py-1">
+                        <div class="px-4 py-2 text-sm font-medium text-gray-700 border-b">
+                            <span id="userName" class="font-ibmPlex">ชื่อผู้ใช้</span>
+                        </div>
+                        <a href="../pages/profile.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-ibmPlex">
+                            โปรไฟล์
+                        </a>
+                        <a href="../pages/booking-history.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-ibmPlex">
+                            ประวัติการจอง
+                        </a>
+                        <button onclick="handleLogout()"
+                            class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100 font-ibmPlex">
+                            ออกจากระบบ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen bg-gray-50 pt-8">
+        <!-- ปุ่มย้อนกลับ -->
+        <div class="absolute top-24 left-4 sm:left-8">
+            <a href="../pages/booking.html"
+                class="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span class="font-ibmPlex text-sm sm:text-base">ย้อนกลับ</span>
+            </a>
+        </div>
+
+        <!-- Container หลัก -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10">
+                <!-- สำหรับการชำระเงินสำเร็จ -->
+                <div id="successPayment" class="text-center">
+                    <!-- ไอคอนเครื่องหมายถูก -->
+                    <div
+                        class="mx-auto w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-green-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+
+                    <!-- ข้อความสถานะ -->
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-ibmPlex">
+                        การชำระเงินเสร็จสมบูรณ์
+                    </h2>
+
+                    <!-- รายละเอียดการจอง -->
+                    <div class="mt-8 space-y-4 text-left">
+                        <div class="border-b border-gray-200 pb-4">
+                            <p class="text-gray-600 font-ibmPlex text-sm sm:text-base">
+                                <span class="font-medium">ชื่อผู้จอง:</span>
+                                <span id="bookingName">คุณทดสอบ ระบบ</span>
+                            </p>
+                            <p class="text-gray-600 font-ibmPlex text-sm sm:text-base mt-2">
+                                <span class="font-medium">โต๊ะที่เลือก:</span>
+                                <span id="tableNumber">42</span>
+                            </p>
+                            <p class="text-gray-600 font-ibmPlex text-sm sm:text-base mt-2">
+                                <span class="font-medium">วันที่:</span>
+                                <span id="bookingDate">24 กุมภาพันธ์ 2567</span>
+                            </p>
+                            <p class="text-gray-600 font-ibmPlex text-sm sm:text-base mt-2">
+                                <span class="font-medium">จำนวนคน:</span>
+                                <span id="personCount">4 คน</span>
+                            </p>
+                            <p class="text-gray-600 font-ibmPlex text-sm sm:text-base mt-2">
+                                <span class="font-medium">จำนวนเงินที่ชำระ:</span>
+                                <span id="amount">1,000 บาท</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- สำหรับการชำระเงินไม่สำเร็จ (เริ่มต้นให้ซ่อนไว้) -->
+                <div id="failurePayment" class="text-center hidden">
+                    <!-- ไอคอนกากบาท -->
+                    <div
+                        class="mx-auto w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-red-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+
+                    <!-- ข้อความสถานะ -->
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-ibmPlex">
+                        ชำระเงินไม่สำเร็จ
+                    </h2>
+                    <p class="text-gray-600 font-ibmPlex text-sm sm:text-base">
+                        กรุณาลองใหม่อีกครั้ง หรือติดต่อเจ้าหน้าที่
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ตรวจสอบสถานะ login
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '../pages/login.html';
+            }
+        });
+
+        // ฟังก์ชันสำหรับสลับการแสดงผลสถานะการชำระเงิน
+        function togglePaymentStatus(isSuccess) {
+            const successElement = document.getElementById('successPayment');
+            const failureElement = document.getElementById('failurePayment');
+
+            if (isSuccess) {
+                successElement.classList.remove('hidden');
+                failureElement.classList.add('hidden');
+            } else {
+                successElement.classList.add('hidden');
+                failureElement.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
